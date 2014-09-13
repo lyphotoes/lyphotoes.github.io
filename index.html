@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Luoyang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A place deep in the heart.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luoyang's blog">
+<meta property="og:url" content="http://qotone.com/">
+<meta property="og:site_name" content="Luoyang's blog">
+<meta property="og:description" content="A place deep in the heart.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Luoyang's blog">
+<meta name="twitter:description" content="A place deep in the heart.">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Luoyang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Luoyang&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">感谢，不平凡的自己...</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://qotone.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-boot_your_qotusun" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/31/boot_your_qotusun/" class="article-date">
+  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Qotusun-mini/">Qotusun-mini</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="固化bootloader前的准备——设置芯片熔丝位">固化bootloader前的准备——设置芯片熔丝位</h2>
+<p>用proisp或者同等软件借助USBASP将芯片熔丝位设置成如下：</p>
+<ol>
+<li>HFUSE = DE</li>
+<li>LFUSE = FF</li>
+<li>EFUSE = FD</li>
+<li>加密位最好别动</li>
+</ol>
+<h2 id="编译Optiboot并固化芯片">编译Optiboot并固化芯片</h2>
+<p>一直在用Sanguino的bootloader，这个已经编译好的bootloader虽然很大（4KB），但是对于Qotusun-mini的Atmega644pa主控来说还算能接受，最近新作了几块新主控板，需要往里下载bootloader，由于Microduino也是用的Atmega644p作为其Core+的主控芯片，而且发现其用的是Optiboot改过来的，都知道Optiboot是出了名的精简，所以想偷懒直接用Microduino生成好的bootloader，谁知下进去之后发现AVRDUDE将主控识别为Atmega644，虽然只是下载程序用，并不影响其他，但是强迫症一直让我对其耿耿于怀，必须将其纠正才是！看了看Optiboot自带的源码，makefile文件中居然有Sanguino的编译选项，so,why not!发现最简单的编译方法就是在Arduino hardware文件夹中用自带的批处理进行自动编译，oh ,my god!,so easy!!!于是将Microduino固件直接放在Arduino软件中，在Windows中直接进入CMD命令行，进入Microduino/bootloaders/optiboot目录:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> Microduino/bootloaders/optiboot</div></pre></td></tr></table></figure>
+
+<p>然后键入指令并运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ omake Sanguino</div></pre></td></tr></table></figure>
+
+<p>于是一个名叫<em>optiboot_atmega644p</em>的intel hex文件生成了，这个就是我们需要的bootloader文件，看看大小只有1.5Kb，然后利用USBASP固化进芯片中，用AVRDUDE检测芯片，“ATmega644p”！恭喜你AVRDUDE君，你答对了！用Qotusun usb下载模块连上主控模块将测试程序下载后进行验证，Bingo!就这么简单，妈妈从此再也不用担心我得学习了，因为以后可以告别专门的下载器而使用Qotusun usb下载模块进行程序下载和串口调试了！</p>
+<h2 id="下载软件通讯格式设置">下载软件通讯格式设置</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-b <span class="number">115200</span></div><div class="line">-p mega644p</div><div class="line">-C arudino</div><div class="line">-P 可以用minicom 查看</div></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/08/31/boot_your_qotusun/" data-id="qt2zx9rk9xwrsqxb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-develop_tool_set" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/31/develop_tool_set/" class="article-date">
+  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Qotusun-mini/">Qotusun-mini</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/31/develop_tool_set/">开发软件配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>工欲善，必先利其器。</p>
+</blockquote>
+<p>现在的集成开发软件有很多种，这里推荐使用CodeBlocks，当然，使用什么开发软件都无所谓，关键是自己熟练。</p>
+<h2 id="CodeBlocks配置">CodeBlocks配置</h2>
+<p>CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。<em>本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也能适用。</em></p>
+<h3 id="设置GNU_GCC_Compier环境">设置GNU GCC Compier环境</h3>
+<ol>
+<li>打开软件，在主菜单中依次选择：Settings -&gt; Compiler 。<br><a href="../image/develop_tools_set_cb_set.png">设置窗口截图</a><br>如图，选择“GNU AVR GCC Compiler”编译器。</li>
+<li>选取“Toolchain executables”选项卡，此处即为设置系统所安装的AVR-gcc编译工具链的环境路径设置。<br><a href="../image/develop_tool_set_cb_set_toolchain.png">AVR GCC工具链环境设置</a><br>如图，此处设置“Compiler’s installation directory”，也就是设置包含“bin”文件夹的目录。</li>
+<li>库文件目录设置。<br>选取“Search directories”选项卡，点击左下脚的“Add”按钮，选择包含avr-gcc中的库文件所在目录，如下图所示：<br><a href="../image/develop_tools_set_cb_libs.png">AVR GCC-libc 库文件目录设置</a></li>
+<li>编译器优化设置<br>在“Other options” 选项卡中填写</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-ffunction-sections -fdata-sections</div><div class="line">-Wl,--gc-sections</div><div class="line">-Os</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/08/31/develop_tool_set/" data-id="vxwx4ygatqbitmmo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-readfirst" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/31/readfirst/" class="article-date">
+  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Qotusun-mini/">Qotusun-mini</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/31/readfirst/">自序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个自动化专业的本科生我已毕业快五年了，这五年时间里我尝试学习过很多专业相关的和不相关的东西，其实，自动化专业的课程本来就很杂，所以这些年涉及各种学科也不算偏离本职。处处涉猎然而处处不精，这似乎是这些年学习各种知识的总结。09年毕业，玩了一年时间的个人博客渐渐因为工作的原因疏于更新，由于博客系统搭建在wordpress平台之上，搭建更新博客的这段时间也算对PHP多少有些了解，虽然这段过程随着博客的关闭没有留下点滴，但是写博客的过程养成了我随手记录的习惯，时至今日不得不感谢当年那一段时间的馈赠。<br>有人说毕业后五年这段时间能决定人的一生，虽然我没有明显感觉到这段时间对我有多少影响，但是五年后的今天我唯一能感触到的是：我将注定对这段时间后悔一生！五年时间我先后学习过51单片机、ARM10、C++、QT、Python、Delphi，很惭愧的是虽然学习过很多知识，但是这些知识无一不是浅尝则止，无一而终。记得当时学习Python的目的是为了编写一款基于数据库的仓库管理软件，在将软件做到成型的时候发现Python编写的软件打包成.exe文件太麻烦而转投Delphi，唯一感到欣慰的是，这款用Delphi编写的“Qotus 仓库备件管理软件”至今能在单位使用，这已经是2013年的事情了。之后由于在车间一些设备上看到了无处不再的AVR单片机开始关注并转投AVR单片机学习，在学习过程中AVR作为唯一一款被功能强大的GCC编译器支持的8位单片机其丰富的单片机外围资源无不让我欣喜若狂，再加上对开源硬件的逐步了解，有幸认识了Arduino 这个基于AVR单片机的硬件模块，积木式的开发板资源，在开源的世界，我被一次次激发了思维，学习已经不再孤独，因为在开源的世界你不是一个人在战斗！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/08/31/readfirst/" data-id="t6y2rdtx4r73pc1h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun-mini/">Qotusun-mini</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qotusun/">Qotusun</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: NaNpx;">Arduino</a><a href="/tags/Qotusun/" style="font-size: NaNpx;">Qotusun</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/31/develop_tool_set/">开发软件配置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/31/readfirst/">自序</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 luoyang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
