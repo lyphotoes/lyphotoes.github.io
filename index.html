@@ -66,9 +66,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-boot_your_qotusun" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-readfirst" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/08/31/boot_your_qotusun/" class="article-date">
+    <a href="/2014/08/31/readfirst/" class="article-date">
   <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31 2014</time>
 </a>
     
@@ -84,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
+      <a class="article-title" href="/2014/08/31/readfirst/">自序</a>
     </h1>
   
 
@@ -92,31 +92,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="固化bootloader前的准备——设置芯片熔丝位">固化bootloader前的准备——设置芯片熔丝位</h2>
-<p>用proisp或者同等软件借助USBASP将芯片熔丝位设置成如下：</p>
-<ol>
-<li>HFUSE = DE</li>
-<li>LFUSE = FF</li>
-<li>EFUSE = FD</li>
-<li>加密位最好别动</li>
-</ol>
-<h2 id="编译Optiboot并固化芯片">编译Optiboot并固化芯片</h2>
-<p>一直在用Sanguino的bootloader，这个已经编译好的bootloader虽然很大（4KB），但是对于Qotusun-mini的Atmega644pa主控来说还算能接受，最近新作了几块新主控板，需要往里下载bootloader，由于Microduino也是用的Atmega644p作为其Core+的主控芯片，而且发现其用的是Optiboot改过来的，都知道Optiboot是出了名的精简，所以想偷懒直接用Microduino生成好的bootloader，谁知下进去之后发现AVRDUDE将主控识别为Atmega644，虽然只是下载程序用，并不影响其他，但是强迫症一直让我对其耿耿于怀，必须将其纠正才是！看了看Optiboot自带的源码，makefile文件中居然有Sanguino的编译选项，so,why not!发现最简单的编译方法就是在Arduino hardware文件夹中用自带的批处理进行自动编译，oh ,my god!,so easy!!!于是将Microduino固件直接放在Arduino软件中，在Windows中直接进入CMD命令行，进入Microduino/bootloaders/optiboot目录:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> Microduino/bootloaders/optiboot</div></pre></td></tr></table></figure>
-
-<p>然后键入指令并运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ omake Sanguino</div></pre></td></tr></table></figure>
-
-<p>于是一个名叫<em>optiboot_atmega644p</em>的intel hex文件生成了，这个就是我们需要的bootloader文件，看看大小只有1.5Kb，然后利用USBASP固化进芯片中，用AVRDUDE检测芯片，“ATmega644p”！恭喜你AVRDUDE君，你答对了！用Qotusun usb下载模块连上主控模块将测试程序下载后进行验证，Bingo!就这么简单，妈妈从此再也不用担心我得学习了，因为以后可以告别专门的下载器而使用Qotusun usb下载模块进行程序下载和串口调试了！</p>
-<h2 id="下载软件通讯格式设置">下载软件通讯格式设置</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-b <span class="number">115200</span></div><div class="line">-p mega644p</div><div class="line">-C arudino</div><div class="line">-P 可以用minicom 查看</div></pre></td></tr></table></figure>
-
-
+        <p>作为一个自动化专业的本科生我已毕业快五年了，这五年时间里我尝试学习过很多专业相关的和不相关的东西，其实，自动化专业的课程本来就很杂，所以这些年涉及各种学科也不算偏离本职。处处涉猎然而处处不精，这似乎是这些年学习各种知识的总结。09年毕业，玩了一年时间的个人博客渐渐因为工作的原因疏于更新，由于博客系统搭建在wordpress平台之上，搭建更新博客的这段时间也算对PHP多少有些了解，虽然这段过程随着博客的关闭没有留下点滴，但是写博客的过程养成了我随手记录的习惯，时至今日不得不感谢当年那一段时间的馈赠。<br>有人说毕业后五年这段时间能决定人的一生，虽然我没有明显感觉到这段时间对我有多少影响，但是五年后的今天我唯一能感触到的是：我将注定对这段时间后悔一生！五年时间我先后学习过51单片机、ARM10、C++、QT、Python、Delphi，很惭愧的是虽然学习过很多知识，但是这些知识无一不是浅尝则止，无一而终。记得当时学习Python的目的是为了编写一款基于数据库的仓库管理软件，在将软件做到成型的时候发现Python编写的软件打包成.exe文件太麻烦而转投Delphi，唯一感到欣慰的是，这款用Delphi编写的“Qotus 仓库备件管理软件”至今能在单位使用，这已经是2013年的事情了。之后由于在车间一些设备上看到了无处不再的AVR单片机开始关注并转投AVR单片机学习，在学习过程中AVR作为唯一一款被功能强大的GCC编译器支持的8位单片机其丰富的单片机外围资源无不让我欣喜若狂，再加上对开源硬件的逐步了解，有幸认识了Arduino 这个基于AVR单片机的硬件模块，积木式的开发板资源，在开源的世界，我被一次次激发了思维，学习已经不再孤独，因为在开源的世界你不是一个人在战斗！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qotone.com/2014/08/31/boot_your_qotusun/" data-id="qt2zx9rk9xwrsqxb" class="article-share-link">Share</a>
+      <a data-url="http://qotone.com/2014/08/31/readfirst/" data-id="td9sbr8gz1yanadp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
@@ -173,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qotone.com/2014/08/31/develop_tool_set/" data-id="vxwx4ygatqbitmmo" class="article-share-link">Share</a>
+      <a data-url="http://qotone.com/2014/08/31/develop_tool_set/" data-id="nc636oekerpe8df6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
@@ -185,9 +166,9 @@
 
 
   
-    <article id="post-readfirst" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-boot_your_qotusun" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/08/31/readfirst/" class="article-date">
+    <a href="/2014/08/31/boot_your_qotusun/" class="article-date">
   <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31 2014</time>
 </a>
     
@@ -203,7 +184,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/31/readfirst/">自序</a>
+      <a class="article-title" href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
     </h1>
   
 
@@ -211,12 +192,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作为一个自动化专业的本科生我已毕业快五年了，这五年时间里我尝试学习过很多专业相关的和不相关的东西，其实，自动化专业的课程本来就很杂，所以这些年涉及各种学科也不算偏离本职。处处涉猎然而处处不精，这似乎是这些年学习各种知识的总结。09年毕业，玩了一年时间的个人博客渐渐因为工作的原因疏于更新，由于博客系统搭建在wordpress平台之上，搭建更新博客的这段时间也算对PHP多少有些了解，虽然这段过程随着博客的关闭没有留下点滴，但是写博客的过程养成了我随手记录的习惯，时至今日不得不感谢当年那一段时间的馈赠。<br>有人说毕业后五年这段时间能决定人的一生，虽然我没有明显感觉到这段时间对我有多少影响，但是五年后的今天我唯一能感触到的是：我将注定对这段时间后悔一生！五年时间我先后学习过51单片机、ARM10、C++、QT、Python、Delphi，很惭愧的是虽然学习过很多知识，但是这些知识无一不是浅尝则止，无一而终。记得当时学习Python的目的是为了编写一款基于数据库的仓库管理软件，在将软件做到成型的时候发现Python编写的软件打包成.exe文件太麻烦而转投Delphi，唯一感到欣慰的是，这款用Delphi编写的“Qotus 仓库备件管理软件”至今能在单位使用，这已经是2013年的事情了。之后由于在车间一些设备上看到了无处不再的AVR单片机开始关注并转投AVR单片机学习，在学习过程中AVR作为唯一一款被功能强大的GCC编译器支持的8位单片机其丰富的单片机外围资源无不让我欣喜若狂，再加上对开源硬件的逐步了解，有幸认识了Arduino 这个基于AVR单片机的硬件模块，积木式的开发板资源，在开源的世界，我被一次次激发了思维，学习已经不再孤独，因为在开源的世界你不是一个人在战斗！</p>
+        <h2 id="固化bootloader前的准备——设置芯片熔丝位">固化bootloader前的准备——设置芯片熔丝位</h2>
+<p>用proisp或者同等软件借助USBASP将芯片熔丝位设置成如下：</p>
+<ol>
+<li>HFUSE = DE</li>
+<li>LFUSE = FF</li>
+<li>EFUSE = FD</li>
+<li>加密位最好别动</li>
+</ol>
+<h2 id="编译Optiboot并固化芯片">编译Optiboot并固化芯片</h2>
+<p>一直在用Sanguino的bootloader，这个已经编译好的bootloader虽然很大（4KB），但是对于Qotusun-mini的Atmega644pa主控来说还算能接受，最近新作了几块新主控板，需要往里下载bootloader，由于Microduino也是用的Atmega644p作为其Core+的主控芯片，而且发现其用的是Optiboot改过来的，都知道Optiboot是出了名的精简，所以想偷懒直接用Microduino生成好的bootloader，谁知下进去之后发现AVRDUDE将主控识别为Atmega644，虽然只是下载程序用，并不影响其他，但是强迫症一直让我对其耿耿于怀，必须将其纠正才是！看了看Optiboot自带的源码，makefile文件中居然有Sanguino的编译选项，so,why not!发现最简单的编译方法就是在Arduino hardware文件夹中用自带的批处理进行自动编译，oh ,my god!,so easy!!!于是将Microduino固件直接放在Arduino软件中，在Windows中直接进入CMD命令行，进入Microduino/bootloaders/optiboot目录:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> Microduino/bootloaders/optiboot</div></pre></td></tr></table></figure>
+
+<p>然后键入指令并运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ omake Sanguino</div></pre></td></tr></table></figure>
+
+<p>于是一个名叫<em>optiboot_atmega644p</em>的intel hex文件生成了，这个就是我们需要的bootloader文件，看看大小只有1.5Kb，然后利用USBASP固化进芯片中，用AVRDUDE检测芯片，“ATmega644p”！恭喜你AVRDUDE君，你答对了！用Qotusun usb下载模块连上主控模块将测试程序下载后进行验证，Bingo!就这么简单，妈妈从此再也不用担心我得学习了，因为以后可以告别专门的下载器而使用Qotusun usb下载模块进行程序下载和串口调试了！</p>
+<h2 id="下载软件通讯格式设置">下载软件通讯格式设置</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-b <span class="number">115200</span></div><div class="line">-p mega644p</div><div class="line">-C arudino</div><div class="line">-P 可以用minicom 查看</div></pre></td></tr></table></figure>
+
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qotone.com/2014/08/31/readfirst/" data-id="t6y2rdtx4r73pc1h" class="article-share-link">Share</a>
+      <a data-url="http://qotone.com/2014/08/31/boot_your_qotusun/" data-id="wbybpfqkhm4qhrj1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
@@ -276,7 +276,7 @@
       <ul>
         
           <li>
-            <a href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
+            <a href="/2014/08/31/readfirst/">自序</a>
           </li>
         
           <li>
@@ -284,7 +284,7 @@
           </li>
         
           <li>
-            <a href="/2014/08/31/readfirst/">自序</a>
+            <a href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
           </li>
         
       </ul>
