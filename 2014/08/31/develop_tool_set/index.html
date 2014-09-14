@@ -7,25 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="工欲善，必先利其器。
 
+
 现在的集成开发软件有很多种，这里推荐使用CodeBlocks，当然，使用什么开发软件都无所谓，关键是自己熟练。
 CodeBlocks配置
-CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也能">
+CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发软件配置">
 <meta property="og:url" content="http://qotone.com/2014/08/31/develop_tool_set/">
 <meta property="og:site_name" content="Luoyang's blog">
 <meta property="og:description" content="工欲善，必先利其器。
 
+
 现在的集成开发软件有很多种，这里推荐使用CodeBlocks，当然，使用什么开发软件都无所谓，关键是自己熟练。
 CodeBlocks配置
-CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也能">
+CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也">
+<meta property="og:image" content="http://qotone.qiniudn.com/develop_tools_setting_CB_sett.png">
+<meta property="og:image" content="http://qotone.qiniudn.com/develop_tool_CB_set_toolchain.png">
+<meta property="og:image" content="http://qotone.qiniudn.com/develop_tools_set_cb_libs.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发软件配置">
 <meta name="twitter:description" content="工欲善，必先利其器。
 
+
 现在的集成开发软件有很多种，这里推荐使用CodeBlocks，当然，使用什么开发软件都无所谓，关键是自己熟练。
 CodeBlocks配置
-CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也能">
+CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也">
 
   
     <link rel="alternative" href="/atom.xml" title="Luoyang&#39;s blog" type="application/atom+xml">
@@ -107,14 +113,15 @@ CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开�
         <blockquote>
 <p>工欲善，必先利其器。</p>
 </blockquote>
+<hr>
 <p>现在的集成开发软件有很多种，这里推荐使用CodeBlocks，当然，使用什么开发软件都无所谓，关键是自己熟练。</p>
 <h2 id="CodeBlocks配置">CodeBlocks配置</h2>
 <p>CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开发的，效率个人觉得都很不错，本教程探讨的是软件具体配置，所以不讲解软件的安装。<em>本教程所有操作是在CodeBlocks 13.10 版进行，若是其他版本稍作修改应该也能适用。</em></p>
 <h3 id="设置GNU_GCC_Compier环境">设置GNU GCC Compier环境</h3>
 <ol>
-<li>打开软件，在主菜单中依次选择：Settings -&gt; Compiler 。<br><a href="../image/develop_tools_set_cb_set.png">设置窗口截图</a><br>如图，选择“GNU AVR GCC Compiler”编译器。</li>
-<li>选取“Toolchain executables”选项卡，此处即为设置系统所安装的AVR-gcc编译工具链的环境路径设置。<br><a href="../image/develop_tool_set_cb_set_toolchain.png">AVR GCC工具链环境设置</a><br>如图，此处设置“Compiler’s installation directory”，也就是设置包含“bin”文件夹的目录。</li>
-<li>库文件目录设置。<br>选取“Search directories”选项卡，点击左下脚的“Add”按钮，选择包含avr-gcc中的库文件所在目录，如下图所示：<br><a href="../image/develop_tools_set_cb_libs.png">AVR GCC-libc 库文件目录设置</a></li>
+<li>打开软件，在主菜单中依次选择：Settings -&gt; Compiler 。<br><img src="http://qotone.qiniudn.com/develop_tools_setting_CB_sett.png" alt="设置窗口截图"><br>如图，选择“GNU AVR GCC Compiler”编译器。</li>
+<li>选取“Toolchain executables”选项卡，此处即为设置系统所安装的AVR-gcc编译工具链的环境路径设置。<br><img src="http://qotone.qiniudn.com/develop_tool_CB_set_toolchain.png" alt="AVR GCC工具链环境设置"><br>如图，此处设置“Compiler’s installation directory”，也就是设置包含“bin”文件夹的目录。</li>
+<li>库文件目录设置。<br>选取“Search directories”选项卡，点击左下脚的“Add”按钮，选择包含avr-gcc中的库文件所在目录，如下图所示：<br><img src="http://qotone.qiniudn.com/develop_tools_set_cb_libs.png" alt="AVR GCC-libc 库文件目录设置"></li>
 <li>编译器优化设置<br>在“Other options” 选项卡中填写</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-ffunction-sections -fdata-sections</div><div class="line">-Wl,--gc-sections</div><div class="line">-Os</div></pre></td></tr></table></figure>
@@ -233,6 +240,9 @@ CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开�
   </div>
 
   
+    <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=1287502585&verifier=a7dbb637&colors=dddddd,dddddd,363635,0069a4,dddddd&dpc=1"></iframe>
+
+  
 </aside>
         
       </div>
@@ -273,7 +283,13 @@ CodeBlocks可以很方便的进行多种开发环境的设置，由于是C++开�
 
 <!-- 多说公共JS代码 end -->
 
+<!-- 将谷歌的库替代掉 end -->
+<!-- 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+-->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
