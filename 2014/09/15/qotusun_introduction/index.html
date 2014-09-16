@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Arduino | Luoyang&#39;s blog</title>
+  <title>进入Qotusun的世界 | Luoyang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A place deep in the heart.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luoyang's blog">
-<meta property="og:url" content="http://qotone.com/tags/Arduino/">
+  <meta name="description" content="Qotusun 是什么
+Qotusun是一块开源的小尺寸AVR单片机开发板，通过堆叠积木的方式扩展各种功能板从而实现对AVR单片机外围功能模块的学习，不同于一般的单片机开发板将所有外围电路固定并集成在一块电路板的设计思路，Qotusun通过将开发板按照各种功能进行分类、分割成一块块小板，比如，只拥有单片机最小系统的核心板；用于下载程序和PC串口通讯的FTUSB232模块；用于显示数字及简单字符的4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进入Qotusun的世界">
+<meta property="og:url" content="http://qotone.com/2014/09/15/qotusun_introduction/">
 <meta property="og:site_name" content="Luoyang's blog">
-<meta property="og:description" content="A place deep in the heart.">
+<meta property="og:description" content="Qotusun 是什么
+Qotusun是一块开源的小尺寸AVR单片机开发板，通过堆叠积木的方式扩展各种功能板从而实现对AVR单片机外围功能模块的学习，不同于一般的单片机开发板将所有外围电路固定并集成在一块电路板的设计思路，Qotusun通过将开发板按照各种功能进行分类、分割成一块块小板，比如，只拥有单片机最小系统的核心板；用于下载程序和PC串口通讯的FTUSB232模块；用于显示数字及简单字符的4">
+<meta property="og:image" content="http://qotone.qiniudn.com/Qotusun.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luoyang's blog">
-<meta name="twitter:description" content="A place deep in the heart.">
+<meta name="twitter:title" content="进入Qotusun的世界">
+<meta name="twitter:description" content="Qotusun 是什么
+Qotusun是一块开源的小尺寸AVR单片机开发板，通过堆叠积木的方式扩展各种功能板从而实现对AVR单片机外围功能模块的学习，不同于一般的单片机开发板将所有外围电路固定并集成在一块电路板的设计思路，Qotusun通过将开发板按照各种功能进行分类、分割成一块块小板，比如，只拥有单片机最小系统的核心板；用于下载程序和PC串口通讯的FTUSB232模块；用于显示数字及简单字符的4">
 
   
     <link rel="alternative" href="/atom.xml" title="Luoyang&#39;s blog" type="application/atom+xml">
@@ -69,58 +73,94 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/31/readfirst/" class="archive-article-date">
-  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31</time>
+        <section id="main"><article id="post-qotusun_introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/15/qotusun_introduction/" class="article-date">
+  <time datetime="2014-09-15T13:44:24.000Z" itemprop="datePublished">9月 15 2014</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Qotusun/">Qotusun</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/31/readfirst/">自序</a>
+    <h1 class="article-title" itemprop="name">
+      进入Qotusun的世界
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/31/boot_your_qotusun/" class="archive-article-date">
-  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
-    </h1>
-  
+        <h2 id="Qotusun_是什么">Qotusun 是什么</h2>
+<p>Qotusun是一块开源的小尺寸AVR单片机开发板，通过堆叠积木的方式扩展各种功能板从而实现对AVR单片机外围功能模块的学习，不同于一般的单片机开发板将所有外围电路固定并集成在一块电路板的设计思路，Qotusun通过将开发板按照各种功能进行分类、分割成一块块小板，比如，只拥有单片机最小系统的<strong>核心板</strong>；用于下载程序和PC串口通讯的<strong>FTUSB232模块</strong>；用于显示数字及简单字符的<strong>4位八段数码显示模块</strong>；用于计时的<strong>RTC时钟模块</strong>；等等……，当然用户也可以根据具体的用途和要求自主设计想要的外围功能模块，因为Qotusun从硬件设计图纸到软件核心库都是开源的。</p>
+<h2 id="Qotusun_为谁而设计">Qotusun 为谁而设计</h2>
+<p>作为一个开源的AVR单片机开发板，我们欢迎任何想要学习和研究或者从事单片机开发事业的人进入单片机的开发世界，但是考虑到知识的门槛和梯度我们还是给出以下建设性意见以帮助读者顺利进阶。</p>
+<h3 id="哪些人适合直接进行Qotusun学习">哪些人适合直接进行Qotusun学习</h3>
+<ul>
+<li>如果你是学工科的学生，并且在上学期间学习过51单片机</li>
+<li>如果—</li>
+<li>如果—</li>
+<li>如果—</li>
+</ul>
+<h3 id="哪些人暂时不适合直接进行Qotusun的学习">哪些人暂时不适合直接进行Qotusun的学习</h3>
+<ul>
+<li>如果—</li>
+<li>如果—</li>
+<li>如果—</li>
+</ul>
+<h2 id="Qotusun_硬件构成之主控板">Qotusun 硬件构成之主控板</h2>
+<p>Qotusun核心板作为AVR单片机最小系统电路板非常精简，一般的单片机最小系统所拥有的电路单元它都有：手动复位电路、晶振电路、AVR单片机、电源指示灯；一般的单片机最小系统没有的它也有，一个2x3针AVR ISP下载接口，该接口用于给单片机下载bootloader，当然也可以用于给单片机下载程序，</p>
+<p><img src="http://qotone.qiniudn.com/Qotusun.png" alt="Qotusun核心板引脚功能图"></p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/09/15/qotusun_introduction/" data-id="1cxa8cjeqp6u74mn" class="article-share-link">Share</a>
+      
+
+	  
+        <a href="http://qotone.com/2014/09/15/qotusun_introduction/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/09/15/qotusun_introduction/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/08/31/readfirst/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自序</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+<!-- 多说评论框 start -->
+
+<section id="comments">
+  <div class="ds-thread"  data-thread-key="/2014/09/15/qotusun_introduction/" data-title="进入Qotusun的世界" data-url="http://qotone.com/2014/09/15/qotusun_introduction/" id="ds_thread">
+    <noscript>Please enable JavaScript to view the <a href="//duoshuo.com/?ref_noscript">comments powered by duoshuo.</a></noscript>
+  </div>
+</section>
+
+<!-- 多说评论框 end -->
 </section>
         
           <aside id="sidebar">

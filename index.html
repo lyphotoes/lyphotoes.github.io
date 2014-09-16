@@ -21,11 +21,14 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<!--
+<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
   
 </head>
+
 <body>
   <div id="container">
     <div id="wrap">
@@ -67,6 +70,78 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-qotusun_introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/15/qotusun_introduction/" class="article-date">
+  <time datetime="2014-09-15T13:44:24.000Z" itemprop="datePublished">9月 15 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Qotusun/">Qotusun</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/15/qotusun_introduction/">进入Qotusun的世界</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Qotusun_是什么">Qotusun 是什么</h2>
+<p>Qotusun是一块开源的小尺寸AVR单片机开发板，通过堆叠积木的方式扩展各种功能板从而实现对AVR单片机外围功能模块的学习，不同于一般的单片机开发板将所有外围电路固定并集成在一块电路板的设计思路，Qotusun通过将开发板按照各种功能进行分类、分割成一块块小板，比如，只拥有单片机最小系统的<strong>核心板</strong>；用于下载程序和PC串口通讯的<strong>FTUSB232模块</strong>；用于显示数字及简单字符的<strong>4位八段数码显示模块</strong>；用于计时的<strong>RTC时钟模块</strong>；等等……，当然用户也可以根据具体的用途和要求自主设计想要的外围功能模块，因为Qotusun从硬件设计图纸到软件核心库都是开源的。</p>
+<h2 id="Qotusun_为谁而设计">Qotusun 为谁而设计</h2>
+<p>作为一个开源的AVR单片机开发板，我们欢迎任何想要学习和研究或者从事单片机开发事业的人进入单片机的开发世界，但是考虑到知识的门槛和梯度我们还是给出以下建设性意见以帮助读者顺利进阶。</p>
+<h3 id="哪些人适合直接进行Qotusun学习">哪些人适合直接进行Qotusun学习</h3>
+<ul>
+<li>如果你是学工科的学生，并且在上学期间学习过51单片机</li>
+<li>如果—</li>
+<li>如果—</li>
+<li>如果—</li>
+</ul>
+<h3 id="哪些人暂时不适合直接进行Qotusun的学习">哪些人暂时不适合直接进行Qotusun的学习</h3>
+<ul>
+<li>如果—</li>
+<li>如果—</li>
+<li>如果—</li>
+</ul>
+<h2 id="Qotusun_硬件构成之主控板">Qotusun 硬件构成之主控板</h2>
+<p>Qotusun核心板作为AVR单片机最小系统电路板非常精简，一般的单片机最小系统所拥有的电路单元它都有：手动复位电路、晶振电路、AVR单片机、电源指示灯；一般的单片机最小系统没有的它也有，一个2x3针AVR ISP下载接口，该接口用于给单片机下载bootloader，当然也可以用于给单片机下载程序，</p>
+<p><img src="http://qotone.qiniudn.com/Qotusun.png" alt="Qotusun核心板引脚功能图"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/09/15/qotusun_introduction/" data-id="1cxa8cjeqp6u74mn" class="article-share-link">Share</a>
+      
+
+	  
+        <a href="http://qotone.com/2014/09/15/qotusun_introduction/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/09/15/qotusun_introduction/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+
+<!-- 多说评论框 end -->
+
   
     <article id="post-readfirst" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -128,7 +203,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Qotusun-mini/">Qotusun-mini</a>
+    <a class="article-category-link" href="/categories/Qotusun/">Qotusun</a>
   </div>
 
   </div>
@@ -175,7 +250,7 @@
       
 	  
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/">Arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVR/">AVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qotusun/">Qotusun</a></li></ul>
 
     </footer>
   </div>
@@ -270,7 +345,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun-mini/">Qotusun-mini</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun/">Qotusun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun-mini/">Qotusun-mini</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -279,7 +354,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qotusun/">Qotusun</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVR/">AVR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qotusun/">Qotusun</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -288,7 +363,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Arduino/" style="font-size: NaNpx;">Arduino</a><a href="/tags/Qotusun/" style="font-size: NaNpx;">Qotusun</a>
+      <a href="/tags/AVR/" style="font-size: 10.00px;">AVR</a><a href="/tags/Arduino/" style="font-size: 10.00px;">Arduino</a><a href="/tags/Qotusun/" style="font-size: 20.00px;">Qotusun</a>
     </div>
   </div>
 
@@ -297,7 +372,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -307,6 +382,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/09/15/qotusun_introduction/">进入Qotusun的世界</a>
+          </li>
         
           <li>
             <a href="/2014/08/31/readfirst/">自序</a>
