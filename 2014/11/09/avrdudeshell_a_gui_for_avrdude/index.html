@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Qotusun | Luoyang&#39;s blog</title>
+  <title>AVRDUDEShell:一个AVRDUDE GUI | Luoyang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A place deep in the heart.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luoyang's blog">
-<meta property="og:url" content="http://qotone.com/tags/Qotusun/">
+  <meta name="description" content="编写软件初衷
+以前在Windows下进行AVR开发用惯了GUI，虽然命令行的AVRDUDE很好用,但是有时候命令行敲到手疼，so , why not avrdudess ? 的确，不可否认在Windows下的AVRDUDESS无可挑剔,但是自从用了ubuntu后,这个能用mono运行的exe程序很是难看,所以,模仿AVRDUDESS的界面开始开发了这个叫做AVRDUDEShell的程序。
+软件实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AVRDUDEShell:一个AVRDUDE GUI">
+<meta property="og:url" content="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/">
 <meta property="og:site_name" content="Luoyang's blog">
-<meta property="og:description" content="A place deep in the heart.">
+<meta property="og:description" content="编写软件初衷
+以前在Windows下进行AVR开发用惯了GUI，虽然命令行的AVRDUDE很好用,但是有时候命令行敲到手疼，so , why not avrdudess ? 的确，不可否认在Windows下的AVRDUDESS无可挑剔,但是自从用了ubuntu后,这个能用mono运行的exe程序很是难看,所以,模仿AVRDUDESS的界面开始开发了这个叫做AVRDUDEShell的程序。
+软件实现">
+<meta property="og:image" content="http://qotone.qiniudn.com/avrdudess4.png">
+<meta property="og:image" content="http://qotone.qiniudn.com/avrdudeshell-2014-11-9.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luoyang's blog">
-<meta name="twitter:description" content="A place deep in the heart.">
+<meta name="twitter:title" content="AVRDUDEShell:一个AVRDUDE GUI">
+<meta name="twitter:description" content="编写软件初衷
+以前在Windows下进行AVR开发用惯了GUI，虽然命令行的AVRDUDE很好用,但是有时候命令行敲到手疼，so , why not avrdudess ? 的确，不可否认在Windows下的AVRDUDESS无可挑剔,但是自从用了ubuntu后,这个能用mono运行的exe程序很是难看,所以,模仿AVRDUDESS的界面开始开发了这个叫做AVRDUDEShell的程序。
+软件实现">
 
   
     <link rel="alternative" href="/atom.xml" title="Luoyang&#39;s blog" type="application/atom+xml">
@@ -69,96 +77,87 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/09/15/qotusun_introduction/" class="archive-article-date">
-  <time datetime="2014-09-15T13:44:24.000Z" itemprop="datePublished">9月 15</time>
+        <section id="main"><article id="post-avrdudeshell_a_gui_for_avrdude" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/09/avrdudeshell_a_gui_for_avrdude/" class="article-date">
+  <time datetime="2014-11-09T01:32:04.000Z" itemprop="datePublished">11月 9 2014</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件项目/">软件项目</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/09/15/qotusun_introduction/">进入Qotusun的世界</a>
+    <h1 class="article-title" itemprop="name">
+      AVRDUDEShell:一个AVRDUDE GUI
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/31/readfirst/" class="archive-article-date">
-  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/31/readfirst/">自序</a>
-    </h1>
-  
+        <h2 id="编写软件初衷">编写软件初衷</h2>
+<p>以前在Windows下进行AVR开发用惯了GUI，虽然命令行的AVRDUDE很好用,但是有时候命令行敲到手疼，so , why not avrdudess ? 的确，不可否认在Windows下的AVRDUDESS无可挑剔,但是自从用了ubuntu后,这个能用mono运行的exe程序很是难看,所以,模仿AVRDUDESS的界面开始开发了这个叫做AVRDUDEShell的程序。</p>
+<h2 id="软件实现">软件实现</h2>
+<ul>
+<li>完全用QT编写，利用QProcess调用AVRDUDE作后台，AVRDUDEShell只是个界面，通过前台界面调用AVRDUDE的各种命令。最重要的是本软件全手工代码实现，尽量不用可见及可得的拖拽界面，这样做完全是为了练手。</li>
+<li>为了使功能更完善，打算用sqlite数据库保存avrdude.conf的数据。</li>
+<li>界面模仿AVRDUDESS但不完全照抄，就算是微创新吧。</li>
+<li>……<h2 id="THE_GOAL_:_向avrdudess致敬">THE GOAL : 向avrdudess致敬</h2>
+说到AVRDUDE 的 GUI 不得不说 AVRDUDESS，这个软件使用.NET开发，是目前功能最全、使用最便捷的AVRDUDE GUI （没有之一）,<a href="http://blog.zakkemble.co.uk/avrdudess-a-gui-for-avrdude" target="_blank" rel="external">AVRDUDESS开发者网</a>。以下是 AVRDUDESS 软件界面截图：<br><img src="http://qotone.qiniudn.com/avrdudess4.png" alt="avrdudess 软件界面截图"></li>
+</ul>
+<h2 id="DO_LIST_:时间轴">DO LIST :时间轴</h2>
+<h4 id="2014年11月9日">2014年11月9日</h4>
+<p>界面编写完成，HEX文件选择，串口选取，与AVRDUDE后台调用，avrdude.conf配置文件读取，截图如下：<br><img src="http://qotone.qiniudn.com/avrdudeshell-2014-11-9.png" alt="AVRDUDEShell主界面截图2014-11-9"></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/31/develop_tool_set/" class="archive-article-date">
-  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/31/develop_tool_set/">开发软件配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/31/boot_your_qotusun/" class="archive-article-date">
-  <time datetime="2014-08-30T16:00:00.000Z" itemprop="datePublished">8月 31</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/" data-id="4mbtgjvd0q5vl9gy" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/31/boot_your_qotusun/">利用Arduino软件编译optiboot bootloader</a>
-    </h1>
-  
 
-    </header>
+	  
+        <a href="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/09/avrdudeshell_a_gui_for_avrdude/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVRDUDE/">AVRDUDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/09/15/qotusun_introduction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">进入Qotusun的世界</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+<!-- 多说评论框 start -->
+
+<section id="comments">
+  <div class="ds-thread"  data-thread-key="/2014/11/09/avrdudeshell_a_gui_for_avrdude/" data-title="AVRDUDEShell:一个AVRDUDE GUI" data-url="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/" id="ds_thread">
+    <noscript>Please enable JavaScript to view the <a href="//duoshuo.com/?ref_noscript">comments powered by duoshuo.</a></noscript>
+  </div>
+</section>
+
+<!-- 多说评论框 end -->
 </section>
         
           <aside id="sidebar">

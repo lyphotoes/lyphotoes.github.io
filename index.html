@@ -71,6 +71,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-avrdudeshell_a_gui_for_avrdude" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/09/avrdudeshell_a_gui_for_avrdude/" class="article-date">
+  <time datetime="2014-11-09T01:32:04.000Z" itemprop="datePublished">11月 9 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件项目/">软件项目</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/09/avrdudeshell_a_gui_for_avrdude/">AVRDUDEShell:一个AVRDUDE GUI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="编写软件初衷">编写软件初衷</h2>
+<p>以前在Windows下进行AVR开发用惯了GUI，虽然命令行的AVRDUDE很好用,但是有时候命令行敲到手疼，so , why not avrdudess ? 的确，不可否认在Windows下的AVRDUDESS无可挑剔,但是自从用了ubuntu后,这个能用mono运行的exe程序很是难看,所以,模仿AVRDUDESS的界面开始开发了这个叫做AVRDUDEShell的程序。</p>
+<h2 id="软件实现">软件实现</h2>
+<ul>
+<li>完全用QT编写，利用QProcess调用AVRDUDE作后台，AVRDUDEShell只是个界面，通过前台界面调用AVRDUDE的各种命令。最重要的是本软件全手工代码实现，尽量不用可见及可得的拖拽界面，这样做完全是为了练手。</li>
+<li>为了使功能更完善，打算用sqlite数据库保存avrdude.conf的数据。</li>
+<li>界面模仿AVRDUDESS但不完全照抄，就算是微创新吧。</li>
+<li>……<h2 id="THE_GOAL_:_向avrdudess致敬">THE GOAL : 向avrdudess致敬</h2>
+说到AVRDUDE 的 GUI 不得不说 AVRDUDESS，这个软件使用.NET开发，是目前功能最全、使用最便捷的AVRDUDE GUI （没有之一）,<a href="http://blog.zakkemble.co.uk/avrdudess-a-gui-for-avrdude" target="_blank" rel="external">AVRDUDESS开发者网</a>。以下是 AVRDUDESS 软件界面截图：<br><img src="http://qotone.qiniudn.com/avrdudess4.png" alt="avrdudess 软件界面截图"></li>
+</ul>
+<h2 id="DO_LIST_:时间轴">DO LIST :时间轴</h2>
+<h4 id="2014年11月9日">2014年11月9日</h4>
+<p>界面编写完成，HEX文件选择，串口选取，与AVRDUDE后台调用，avrdude.conf配置文件读取，截图如下：<br><img src="http://qotone.qiniudn.com/avrdudeshell-2014-11-9.png" alt="AVRDUDEShell主界面截图2014-11-9"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/" data-id="4mbtgjvd0q5vl9gy" class="article-share-link">Share</a>
+      
+
+	  
+        <a href="http://qotone.com/2014/11/09/avrdudeshell_a_gui_for_avrdude/#ds-thread" class="ds-thread-count article-comment-link" data-thread-key="/2014/11/09/avrdudeshell_a_gui_for_avrdude/">暂无评论</a>
+      
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVRDUDE/">AVRDUDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+
+<!-- 多说评论框 end -->
+
+  
     <article id="post-qotusun_introduction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/09/15/qotusun_introduction/" class="article-date">
@@ -345,7 +410,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun/">Qotusun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun-mini/">Qotusun-mini</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun/">Qotusun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Qotusun-mini/">Qotusun-mini</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件项目/">软件项目</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -354,7 +419,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVR/">AVR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qotusun/">Qotusun</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVR/">AVR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVRDUDE/">AVRDUDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qotusun/">Qotusun</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/">Qt</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -363,7 +428,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AVR/" style="font-size: 10.00px;">AVR</a><a href="/tags/Arduino/" style="font-size: 10.00px;">Arduino</a><a href="/tags/Qotusun/" style="font-size: 20.00px;">Qotusun</a>
+      <a href="/tags/AVR/" style="font-size: 15.00px;">AVR</a><a href="/tags/AVRDUDE/" style="font-size: 10.00px;">AVRDUDE</a><a href="/tags/Arduino/" style="font-size: 15.00px;">Arduino</a><a href="/tags/Qotusun/" style="font-size: 20.00px;">Qotusun</a><a href="/tags/Qt/" style="font-size: 10.00px;">Qt</a>
     </div>
   </div>
 
@@ -372,7 +437,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -382,6 +447,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/09/avrdudeshell_a_gui_for_avrdude/">AVRDUDEShell:一个AVRDUDE GUI</a>
+          </li>
         
           <li>
             <a href="/2014/09/15/qotusun_introduction/">进入Qotusun的世界</a>
